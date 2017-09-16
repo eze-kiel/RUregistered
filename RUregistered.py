@@ -1,6 +1,7 @@
 import sys
 
 # database sqlite3 pour les pseudos + pswrds -> database permanente
+# blblblblbl
 
 users = {}
 
