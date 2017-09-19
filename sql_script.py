@@ -6,23 +6,26 @@ prefix = 'insert into emp values'
 
 def check_user():
 
-    choice = input("existes-tu ? (y/n): ").lower().strip()
+    haveAccount = input("are you registered? (y/n): ").lower().strip()
 
-    if choice == "y":
+    if haveAccount == "y":
         print("okay")
         sys.exit()
 
-    elif choice == "n":
-        name = input("entre ton nom: ")
-        mdp = input("entre ton mot de passe: ")
+    elif haveAccount == "n":
+        name = input("enter your pseudo: ")
+        mdp = input("enter your password: ")
         curs.execute(prefix + "('{}', '{}')".format(name, mdp))
+
     else:
-        print("i don't know this")
+        print("i don't know this command")
         sys.exit()
 
     result = curs.execute("select user, password from emp")
     print(result.fetchall())
 
+
+# main loop
 try:
     curs.execute('create table emp (user, password)')
 except:

@@ -2,7 +2,6 @@ import sys, sqlite3
 
 # database sqlite3 pour les pseudos + pswrds -> database permanente
 # ou la fonction read de python, w/ read & write
-# implementer la fonction rate_me.py
 
 users = {}
 
@@ -15,7 +14,7 @@ def account_check():
 
         pseudo = input("enter your pseudo: ").lower()
 
-        if pseudo in users:
+        if pseudo in users:  # if pseudo in users and password in users[pseudo]
 
             password = input("enter your password: ")
 
