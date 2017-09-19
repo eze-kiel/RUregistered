@@ -22,7 +22,10 @@ def check_user():
 
     elif haveAccount == "q": #dev option, will not be in the final code
         sys.exit()
-        
+
+    elif haveAccount == "print": #dev option, will not be in the final code
+        pass       
+
     else:
         print("i don't know this command")
         sys.exit()
@@ -36,5 +39,6 @@ try:
     curs.execute('create table emp (user, password)')
 except:
     pass
+
 while True:
     check_user()
