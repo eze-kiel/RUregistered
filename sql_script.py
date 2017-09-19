@@ -4,6 +4,11 @@ conn = sqlite3.connect('database.db')
 curs = conn.cursor()
 prefix = 'insert into emp values'
 
+def add_user():
+    name = input("enter your pseudo: ")
+    mdp = input("enter your password: ")
+    curs.execute(prefix + "('{}', '{}')".format(name, mdp))
+
 def check_user():
 
     haveAccount = input("are you registered? (y/n): ").lower().strip()
@@ -13,10 +18,11 @@ def check_user():
         sys.exit()
 
     elif haveAccount == "n":
-        name = input("enter your pseudo: ")
-        mdp = input("enter your password: ")
-        curs.execute(prefix + "('{}', '{}')".format(name, mdp))
+        add_user()
 
+    elif haveAccount == "q": #dev option, will not be in the final code
+        sys.exit()
+        
     else:
         print("i don't know this command")
         sys.exit()
@@ -30,5 +36,5 @@ try:
     curs.execute('create table emp (user, password)')
 except:
     pass
-
-check_user()
+while True:
+    check_user()
