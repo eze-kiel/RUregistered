@@ -1,6 +1,8 @@
 import sys
 
 # database sqlite3 pour les pseudos + pswrds -> database permanente
+#ou la fonction read de python, w/ read & write
+# implementer la fonction rate_me.py
 
 users = {}
 
